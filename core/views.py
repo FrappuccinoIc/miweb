@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 
-# Create your views here.
+def home(req):
+    return render(req, "core/index.html")
+
+def foro(req):
+    return render(req, "core/foro.html")

@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core import views # Importar las funciones o métodos que quieres ejecutar al acceder una ruta
 
+# Guardar cada nueva ruta aqui
 urlpatterns = [
+    path('', views.home, name = 'home'), # ('ruta de acceso, ej: tupagina.com/foro/comentarios/:id', función o método a ejecutar al acceder, alias de ruta)
+    path('foro/', views.foro),
     path('admin/', admin.site.urls),
 ]
