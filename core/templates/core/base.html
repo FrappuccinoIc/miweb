@@ -5,14 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>miweb</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        .roboto{
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+    </style>
 </head>
-<body>
-    <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/foro/">Foro</a></li>
-    </ul>
-    <hr>
-    {% block bloque_contenido %}{% endblock %}
+<body class="text-center">
+
+    <header>
+        <nav class="navbar navbar-expand-md bg-primary">
+            <div class="container mt-2">
+                <div class="row justify-content-center">
+                    <img class="img-fluid col-1" width="80px" src="https://static.vecteezy.com/system/resources/previews/045/760/435/non_2x/simple-mountain-design-free-png.png" alt="logo">
+                    <a class="navbar-brand col-2 fs-1 roboto" href="./index.html">YelpCamp</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <nav class="navbar navbar-expand-md navbar-info bg-info">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-1 mb-md-0">
+                        <li class="nav-item fs-4 roboto"><a class="nav-link" href="/">Inicio</a></li>
+                        <li class="nav-item fs-4 roboto"><a class="nav-link" href="/foro">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="form-signin mt-4">
+        <div class="container mt-4 text-center">
+            <div class="row align-items-center">
+                <div class="col col-2 ms-auto publicidad">
+                    <img src="https://rockstorevinilos.cl/wp-content/uploads/2022/09/R-1514371-1374247142-1541.jpg" width="200" height="400" alt="snowgoose">
+                </div>
+                <div class="col col-8 ms-auto">
+                    {% block bloque_contenido %}{% endblock %}
+                </div>
+                <div class="col col-2 ms-auto publicidad">
+                    <img src="https://rockstorevinilos.cl/wp-content/uploads/2022/09/R-1514371-1374247142-1541.jpg" width="200" height="400" alt="snowgoose">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-4">
+        <img src="https://forestschool.ro/wp-content/uploads/2015/10/footer1-4.png" alt="" class="img-fluid" height="100">
+        <nav class="navbar navbar-expand-md navbar-info bg-info">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="navbar-collapse">
+                        <img class="img-fluid col-1" width="80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png" alt="github logo">
+                        <a class="navbar-brand fs-2 col-4 roboto" href="https://github.com/FrappuccinoIc">Github</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   </body>
 </body>
