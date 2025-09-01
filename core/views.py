@@ -5,3 +5,6 @@ def home(req):
 
 def foro(req):
     return render(req, "core/foro.html")
+
+def faq(req):
+    return render(req, "core/faq.html")
