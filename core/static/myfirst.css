@@ -2,13 +2,21 @@ body {
   background-color: lightblue;
 }
 
-.roboto {
+/* .font-2 {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 100;
+} */
+
+.oswald {
+  font-family: "Oswald";
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
+
 .logo {
     width: 100px;
 }
@@ -19,4 +27,8 @@ body {
   background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.psu.com%2Fwp%2Fwp-content%2Fuploads%2F2020%2F10%2FYakuza-Like-a-Dragon-PS4-PS5-Wallpapers-16.jpg&f=1&nofb=1&ipt=60cf1c6555a746107f6b1dda9530706745bd075057ccb5a7b98c5f6002b88e02');
   background-size: auto;
   background-position: 50% 20%;
+}
+
+article .container {
+  height: 200px;
 }
