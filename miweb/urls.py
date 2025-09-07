@@ -22,6 +22,6 @@ from core import views # Importar las funciones o métodos que quieres ejecutar 
 urlpatterns = [
     path('', views.home, name = 'home'), # ('ruta de acceso, ej: tupagina.com/foro/comentarios/:id', función o método a ejecutar al acceder, alias de ruta)
     path('faq/', views.faq),
-    path('foro/', views.foro),
+    path('redes_sociales/', views.redes_sociales),
     path('admin/', admin.site.urls),
 ]
