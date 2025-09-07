@@ -16,9 +16,13 @@ body {
 .banner {
   height: 120px;
   overflow: hidden;
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.psu.com%2Fwp%2Fwp-content%2Fuploads%2F2020%2F10%2FYakuza-Like-a-Dragon-PS4-PS5-Wallpapers-16.jpg&f=1&nofb=1&ipt=60cf1c6555a746107f6b1dda9530706745bd075057ccb5a7b98c5f6002b88e02');
-  background-size: auto;
-  background-position: 50% 20%;
+  background-image: url('https://arthive.com/res/media/img/oy800/work/107/249903@2x.webp');
+  background-size: cover;
+  background-position: 107% 65%;
+}
+
+.footer {
+  background-position: 50% -20%;
 }
 
 article .container {
