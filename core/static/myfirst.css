@@ -2,14 +2,21 @@ body {
   background-color: lightblue;
 }
 
-
-.roboto {
+/* .font-2 {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 100;
+} */
+
+.oswald {
+  font-family: "Oswald";
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
+
 .logo {
     width: 100px;
 }
