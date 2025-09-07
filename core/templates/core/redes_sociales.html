@@ -1,27 +1,37 @@
 {% extends 'core/base.html' %}
+{% block bloque_definicion %}
+<p>Una breve descripcion de nosotros, presentando nuestras carreras de estudio, edad y enlace de github.</p>
+{% endblock %}
 {% block bloque_contenido %}
-    <div class="container">
-        <div class="row justify-content-center">
-            <h1>Sobre Nosotros</h1>
-            
+<div class="container">
+    <h1 class="text-center mb-4">Sobre Nosotros</h1>
+    <div class="row justify-content-center g-4">
+
+        <div class="col-md-4 d-flex justify-content-center">
             <div class="card" style="width: 17rem;">
-                <img src="https://avatars.githubusercontent.com/u/202694014?v=4" class="card-img-top" alt="butterdog.jpg" width="auto">
+                <img src="https://avatars.githubusercontent.com/u/202694014?v=4" class="card-img-top" alt="butterdog.jpg">
                 <div class="card-body">
                     <h5 class="card-title">Renato Espinoza</h5>
                     <p class="card-text">Estudiante de Ingeniería en Informática de 21 años.</p>
                     <a href="https://github.com/FrappuccinoIc" class="btn btn-primary">Ir a github</a>
                 </div>
             </div>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center">
             <div class="card" style="width: 17rem;">
-                <img src="https://avatars.githubusercontent.com/u/127630496?v=4" class="card-img-top" alt="butterdog.jpg" width="auto">
+                <img src="https://avatars.githubusercontent.com/u/127630496?v=4" class="card-img-top" alt="butterdog.jpg">
                 <div class="card-body">
                     <h5 class="card-title">Alfonso Espinoza</h5>
                     <p class="card-text">Estudiante de Ingeniería en Informática de 24 años.</p>
                     <a href="https://github.com/iscifeere" class="btn btn-primary">Ir a github</a>
                 </div>
             </div>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center">
             <div class="card" style="width: 17rem;">
-                <img src="https://avatars.githubusercontent.com/u/202693907?v=4" class="card-img-top" alt="butterdog.jpg" width="auto">
+                <img src="https://avatars.githubusercontent.com/u/202693907?v=4" class="card-img-top" alt="butterdog.jpg">
                 <div class="card-body">
                     <h5 class="card-title">Sebastian Riquelme</h5>
                     <p class="card-text">Estudiante de Ingeniería en Informática de 21 años.</p>
@@ -30,4 +40,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
