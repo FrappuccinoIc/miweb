@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.home, name = 'home'), # ('ruta de acceso, ej: tupagina.com/foro/comentarios/:id', función o método a ejecutar al acceder, alias de ruta)
     path('faq/', views.faq),
     path('redes_sociales/', views.redes_sociales),
+    path('galeria/', views.galeria),
     path('admin/', admin.site.urls),
 ]

@@ -8,3 +8,6 @@ def redes_sociales(req):
 
 def faq(req):
     return render(req, "core/faq.html")
+
+def galeria(req):
+    return render(req, "core/galeria.html")

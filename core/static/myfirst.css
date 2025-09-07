@@ -20,3 +20,7 @@ body {
   background-size: auto;
   background-position: 50% 20%;
 }
+
+article .container {
+  height: 200px;
+}
