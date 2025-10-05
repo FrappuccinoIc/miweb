@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from core import views as views_core
 from publicaciones import views as views_publicacion # Importar las funciones o métodos que quieres ejecutar al acceder una ruta
+from django.conf import settings
 
 # Guardar cada nueva ruta aqui
 urlpatterns = [
@@ -12,3 +13,6 @@ urlpatterns = [
     path('foro/', views_publicacion.foro),
     path('admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

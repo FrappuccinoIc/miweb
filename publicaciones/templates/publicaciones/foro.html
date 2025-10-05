@@ -9,8 +9,10 @@
         
             {% for p in publicacion %}
             <div class="container">
+                <p>------------------------------</p>
                 <p>{{ p.titulo }}</p>
                 <p>{{ p.descripcion }}</p>
+                <img src="{{ p.imagen.url }}" alt="">
                 <hr>
             </div>
             {% endfor %}
