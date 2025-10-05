@@ -25,6 +25,6 @@ body {
   background-position: 50% -20%;
 }
 
-article .container {
-  height: 200px;
+.rowpost {
+  border: black solid 1px ;
 }
