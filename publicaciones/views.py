@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Publicacion
 
-# Create your views here.
+def foro(req):
+    publicacion=Publicacion.objects.all()
+    return render(req, "publicaciones/foro.html", {"publicacion": publicacion})

@@ -1,28 +1,14 @@
-"""
-URL configuration for fansdelprog project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from core import views # Importar las funciones o métodos que quieres ejecutar al acceder una ruta
+from core import views as views_core
+from publicaciones import views as views_publicacion # Importar las funciones o métodos que quieres ejecutar al acceder una ruta
 
 # Guardar cada nueva ruta aqui
 urlpatterns = [
-    path('', views.home, name = 'home'), # ('ruta de acceso, ej: tupagina.com/foro/comentarios/:id', función o método a ejecutar al acceder, alias de ruta)
-    path('faq/', views.faq),
-    path('redes_sociales/', views.redes_sociales),
-    path('galeria/', views.galeria),
+    path('', views_core.home, name = 'home'), # ('ruta de acceso, ej: tupagina.com/foro/comentarios/:id', función o método a ejecutar al acceder, alias de ruta)
+    path('faq/', views_core.faq),
+    path('redes_sociales/', views_core.redes_sociales),
+    path('galeria/', views_core.galeria),
+    path('foro/', views_publicacion.foro),
     path('admin/', admin.site.urls),
 ]
