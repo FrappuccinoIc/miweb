@@ -16,7 +16,7 @@ body {
 .banner {
   height: 120px;
   overflow: hidden;
-  background-image: url('https://arthive.com/res/media/img/oy800/work/107/249903@2x.webp');
+  background-image: url('../imagenes/249903@2x.webp');
   background-size: cover;
   background-position: 107% 65%;
 }
