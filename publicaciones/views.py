@@ -5,8 +5,7 @@ from django.core.paginator import Paginator
 
 def foro(req):
     publicacion=Publicacion.objects.all()
-    p = Paginator(publicacion, 1)
-    num_pag = req.GET.get('page', 1)    # Segundo arg es default
+    p = Paginator(publicacion, 2)
 
     page_number = req.GET.get('page')
 
