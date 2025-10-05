@@ -1,41 +1,54 @@
 {% extends 'publicaciones/base.html' %}
+
 {% block bloque_definicion %}
-<h2>Encuentra publicaciones de otros usuarios sobre tus temas del rock progresivo favoritos!</h2>
+<h2>En este apartado responderemos posibles preguntas que puedas tener acerca del rock progresivo.</h2>
 {% endblock %}
+
 {% block bloque_contenido %}
-    <div class="container">
-        <div class="row justify-content-start">
-            <h1 class="mb-5">FORO PRINCIPAL</h1>
-        
-            {% for p in paginacion.object_list %}
-            <div class="row container justify-content-start border border-top-3 border-bottom-3 border-light p-3">
-                <h3>{{ p.titulo }} - {{ p.usuario }}</h3>
-                <p>{{ p.descripcion }}</p>
-                <img class="img-responsive col-3" src="{{ p.imagen.url }}" alt="">
-            </div>
-            {% endfor %}
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="mb-5">FORO PRINCIPAL</h1>
 
-
+        {% for p in page_obj %}
+        <div class="container text-center mb-5">
+            <p>------------------------------</p>
+            <h4>{{ p.titulo }}</h4>
+            <p>{{ p.descripcion }}</p>
+            <img src="{{ p.imagen.url }}" alt="{{ p.titulo }}" class="img-fluid mb-3">
+            <hr>
         </div>
-        <nav aria-label="Page navigation example" class="row mt-5">
+        {% empty %}
+        <p>No hay publicaciones disponibles.</p>
+        {% endfor %}
+
+        <!-- Paginación -->
+        <nav aria-label="Paginación">
             <ul class="pagination justify-content-center">
-                {% if paginacion.has_previous %}
-                <li class="page-item"><a class="page-link" href="?num={{ paginacion.previous_page_number }}">Previous</a></li>
+
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link">Anterior</span></li>
                 {% endif %}
 
-                <li class="page-item"><a class="page-link" href="#">{{ paginacion.number }}</a></li>
+                {% for num in page_obj.paginator.page_range %}
+                <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endfor %}
 
-                {% if paginacion.number + 1 < num_posts %}
-                <li class="page-item"><a class="page-link" href="?num={{ paginacion.next_page_number }}">{{ paginacion.number + 1 }}</a></li>
-                {% endif %}
-                {% if paginacion.number + 2 < num_posts %}
-                <li class="page-item"><a class="page-link" href="?num={{ paginacion.number + 2 }}">{{ paginacion.number + 2 }}</a></li>
-                {% endif %}
-                
-                {% if paginacion.has_next %}
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
                 {% endif %}
             </ul>
         </nav>
+
     </div>
+</div>
 {% endblock %}

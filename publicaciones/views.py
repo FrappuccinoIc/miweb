@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage
 from .models import Publicacion
+from django.core.paginator import Paginator
 
 def foro(req):
-    publicacion=Publicacion.objects.all()
-    p = Paginator(publicacion, 2)
-    num_pag = req.GET.get('page', 1)    # Segundo arg es default
+    publicaciones = Publicacion.objects.all().order_by('id')  # puedes cambiar el orden si quieres
+    paginator = Paginator(publicaciones, 1)  # ← un artículo por página
 
-    try: pag = p.page(num_pag)
-    except: pag = p.page(1)
+    page_number = req.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    return render(req, "publicaciones/foro.html", {"paginacion": pag, "num_posts": len(publicacion)})
+    return render(req, "publicaciones/foro.html", {"page_obj": page_obj})
