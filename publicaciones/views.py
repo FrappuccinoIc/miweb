@@ -1,15 +1,16 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage
 from .models import Publicacion
+from django.core.paginator import Paginator
 
-def foro(request):
-    publicacion=Publicacion.objects.all().order_by('created')
+def foro(req):
+    publicacion=Publicacion.objects.all()
     p = Paginator(publicacion, 2)
-    num_pag = request.GET.get('page', 1)    # Segundo arg es default
+    num_pag = req.GET.get('page', 1)    # Segundo arg es default
 
-    try: pag = p.page(num_pag)
-    except: 
-        pag = p.page(1)
+    page_number = req.GET.get('page')
+    
+        page_obj = paginator.get_page(page_number)
         print("paso error")
 
-    return render(request, "publicaciones/foro.html", {"paginacion": pag, "num_posts": len(publicacion)})
+    return render(request, "publicaciones/foro.html", {"page_obj": page_obj})
