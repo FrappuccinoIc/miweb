@@ -1,28 +1,25 @@
 {% extends 'publicaciones/base.html' %}
-
 {% block bloque_definicion %}
-<h2>En este apartado responderemos posibles preguntas que puedas tener acerca del rock progresivo.</h2>
+<h2>Encuentra publicaciones de otros usuarios sobre tus temas del rock progresivo favoritos!</h2>
 {% endblock %}
-
 {% block bloque_contenido %}
-<div class="container">
-    <div class="row justify-content-center">
-        <h1 class="mb-5">FORO PRINCIPAL</h1>
+    <div class="container">
+        <div class="row justify-content-start">
+            <h1 class="mb-5">FORO PRINCIPAL</h1>
+        
+            {% for p in page_obj.object_list %}
+            <div class="row mt-2 container justify-content-start border rounded border-top-3 border-bottom-3 border-light p-3">
+                <img class="img-responsive col-3" src="{{ p.imagen.url }}" alt="">
+                <div class="col-9 align">
+                    <h3>{{ p.titulo }} - {{ p.usuario }}</h3>
+                    <p class="fs-5 text-start">{{ p.descripcion }}</p>
+                </div>
+            </div>
+            {% endfor %}
 
-        {% for p in page_obj %}
-        <div class="container text-center mb-5">
-            <p>------------------------------</p>
-            <h4>{{ p.titulo }}</h4>
-            <p>{{ p.descripcion }}</p>
-            <img src="{{ p.imagen.url }}" alt="{{ p.titulo }}" class="img-fluid mb-3">
-            <hr>
         </div>
-        {% empty %}
-        <p>No hay publicaciones disponibles.</p>
-        {% endfor %}
 
-        <!-- Paginación -->
-        <nav aria-label="Paginación">
+        <nav aria-label="Paginación" class="row mt-5">
             <ul class="pagination justify-content-center">
 
                 {% if page_obj.has_previous %}
@@ -33,11 +30,13 @@
                 <li class="page-item disabled"><span class="page-link">Anterior</span></li>
                 {% endif %}
 
+
                 {% for num in page_obj.paginator.page_range %}
                 <li class="page-item {% if page_obj.number == num %}active{% endif %}">
                     <a class="page-link" href="?page={{ num }}">{{ num }}</a>
                 </li>
                 {% endfor %}
+
 
                 {% if page_obj.has_next %}
                 <li class="page-item">
