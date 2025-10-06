@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 
 def foro(req):
     publicacion=Publicacion.objects.all()
-    p = Paginator(publicacion, 2)
+    p = Paginator(publicacion, 4)
 
     page_number = req.GET.get('page') # Se pasa la url que se quiere conseguir, en este caso: ?page=n
     page_obj = p.get_page(page_number)
