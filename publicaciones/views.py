@@ -19,4 +19,4 @@ def foro(req):
     return render(req, "publicaciones/foro.html", {
         "page_obj": page_obj,
         "page_range": page_range,  # 🔹 se pasa al template
-    })
+})
