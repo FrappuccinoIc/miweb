@@ -1,3 +1,6 @@
 core/__pycache__
 core/migrations/__pycache__
 miweb/__pycache__
+miweb/migrations/__pycache__
+usuarios/__pycache__
+usuarios/migrations/__pycache__
