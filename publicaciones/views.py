@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Publicacion
+from .models import Publicacion, Usuario
 from django.core.paginator import Paginator
 
 def foro(req):
@@ -20,3 +20,8 @@ def foro(req):
         "page_obj": page_obj,
         "page_range": page_range,  # 🔹 se pasa al template
 })
+
+def perfil(req, usuario_id):
+    usuario = Usuario.objects.get(id = usuario_id)
+    # Añadir página 404 con manejo de errores
+    return render(req, "publicaciones/perfil.html", {"usuario": usuario})

@@ -1,5 +1,15 @@
 from django.db import models
 
+class Usuario(models.Model):
+    username = models.CharField(max_length=40, verbose_name="Nombre de Usuario")
+    descripcion = models.TextField(verbose_name = "Descripción")
+    imagen = models.ImageField(upload_to="projects", verbose_name="Perfil")
+
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Última vez actualizado")
+
+    def __str__(self): return self.username
+
 class Categoria(models.Model):
     nombre = models.CharField(max_length = 50, verbose_name = "Nombre")
     
@@ -11,12 +21,19 @@ class Categoria(models.Model):
         verbose_name_plural = "categorias"
 
     def __str__(self): return self.nombre
+
 class Publicacion(models.Model):
     titulo = models.CharField(max_length=100)
-    usuario = models.CharField(max_length=20)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    #usuario = models.CharField(max_length=20)
+    
     descripcion = models.TextField(verbose_name = "Descripción")
     imagen = models.ImageField(upload_to="projects", verbose_name="Imagen")
-    categories = models.ManyToManyField(Categoria, verbose_name = "Categorias")
+    #categories = models.ManyToManyField(Categoria, verbose_name = "Categorias")
+
+    class Meta:
+        verbose_name = "publicación"
+        verbose_name_plural = "publicaciones"
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

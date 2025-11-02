@@ -9,10 +9,12 @@
         
             {% for p in page_obj.object_list %}
             <div class="row mt-2 container justify-content-start border rounded border-top-3 border-bottom-3 border-light p-3">
-                <img class="img-responsive col-3" src="{{ p.imagen.url }}" alt="">
-                <div class="col-9 align">
-                    <h3>{{ p.titulo }} - {{ p.usuario }}</h3>
-                    <p class="fs-5 text-start">{{ p.descripcion }}</p>
+                {% if p.imagen %}
+                <img class="img-responsive col-3" src="{{ p.imagen.url }}" alt="post_imagen">
+                {% endif %}
+                <div class="col-9 text-start">
+                    <h3 class="text-start">{{ p.titulo }} - <a href="{% url 'perfil' p.usuario.id %}">{{ p.usuario.username }}</a></h3>
+                    <p class="fs-5">{{ p.descripcion }}</p>
                 </div>
             </div>
             {% endfor %}
