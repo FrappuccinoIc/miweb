@@ -14,6 +14,12 @@
                 {% endif %}
                 <div class="col-9 text-start">
                     <h3 class="text-start">{{ p.titulo }} - <a href="{% url 'perfil' p.usuario.id %}">{{ p.usuario.username }}</a></h3>
+                    <h4 class="text-start text-muted fs-4">
+                        Categorias: 
+                        {% for c in p.categorias.all %}
+                            {{c.nombre}}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </h4>
                     <p class="fs-5">{{ p.descripcion }}</p>
                 </div>
             </div>
